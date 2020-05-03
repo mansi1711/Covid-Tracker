@@ -15,16 +15,7 @@ describe('PrecautionsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PrecautionsComponent],
-      imports: [
-        NoopAnimationsModule,
-        LayoutModule,
-        MatButtonModule,
-        MatCardModule,
-        MatGridListModule,
-        MatIconModule,
-        MatMenuModule,
-      ]
+      declarations: [PrecautionsComponent]
     }).compileComponents();
   }));
 

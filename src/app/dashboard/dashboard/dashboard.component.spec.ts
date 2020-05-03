@@ -15,16 +15,7 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DashboardComponent],
-      imports: [
-        NoopAnimationsModule,
-        LayoutModule,
-        MatButtonModule,
-        MatCardModule,
-        MatGridListModule,
-        MatIconModule,
-        MatMenuModule,
-      ]
+      declarations: [DashboardComponent]
     }).compileComponents();
   }));
 
@@ -36,5 +27,15 @@ describe('DashboardComponent', () => {
 
   it('should compile', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should check if value is total ', () => {
+    const check = component.checkIfTotal("Total");
+    expect(check).toBeTruthy();
+  });
+
+  it('should provide statewise data', () => {
+    const data = component.getStatewiseData();
+    expect(data).length > 0;
   });
 });
