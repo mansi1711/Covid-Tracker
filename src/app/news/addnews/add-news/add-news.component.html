@@ -1,0 +1,138 @@
+<div class="card">
+    <div class="card-header">
+      Add News
+    </div>
+    <div class="card-body">
+      <form novalidate (ngSubmit)="save(newsForm.value)" [formGroup]="newsForm">
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="txtTitle">
+            News Title
+          </label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="txtTitle"
+              type="text"
+              placeholder="Enter Title"
+              formControlName="title"
+              [ngClass]="{
+                'is-invalid':
+                  (newsForm.get('title').touched || newsForm.get('title').dirty) &&
+                  !newsForm.get('title').valid
+              }"
+            />
+            <span class="invalid-feedback">
+              <span *ngIf="newsForm.get('title').errors?.required">
+                Please enter Title.
+              </span>
+              <span *ngIf="newsForm.get('title').errors?.minlength">
+                Title must be longer than 5 characters.
+              </span>
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="textDescription">
+            Description
+          </label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="textDescription"
+              type="text"
+              placeholder="Enter Description"
+              formControlName="description"
+              [ngClass]="{
+                'is-invalid':
+                  (newsForm.controls.description.touched ||
+                  newsForm.controls.description.dirty) &&
+                  !newsForm.controls.description.valid
+              }"
+            />
+            <span class="invalid-feedback">
+              <span *ngIf="newsForm.controls.description.errors?.required">
+                Please enter Description.
+              </span>
+              <span *ngIf="newsForm.get('description').errors?.minlength">
+                Description must be longer than 15 characters.
+              </span>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="textfullnews">
+            Full News
+          </label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="textfullnews"
+              type="text"
+              placeholder="Enter Full News"
+              formControlName="fullnews"
+              [ngClass]="{
+                'is-invalid':
+                  (newsForm.controls.fullnews.touched ||
+                  newsForm.controls.fullnews.dirty) &&
+                  !newsForm.controls.fullnews.valid
+              }"
+            />
+            <span class="invalid-feedback">
+              <span *ngIf="newsForm.controls.fullnews.errors?.required">
+                Please enter Full News.
+              </span>
+              <span *ngIf="newsForm.get('fullnews').errors?.minlength">
+                Full News must be longer than 25 characters.
+              </span>
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="textImage">
+            Image Url
+          </label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="textImage"
+              type="text"
+              placeholder="Enter Image Url"
+              formControlName="image"
+              [ngClass]="{
+                'is-invalid':
+                  (newsForm.get('image').touched ||
+                  newsForm.get('image').dirty) &&
+                  !newsForm.get('image').valid
+              }"
+            />
+            <span class="invalid-feedback">
+              <span *ngIf="newsForm.get('image').errors?.required">
+                Please enter Image Url.
+              </span>
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <div class="offset-md-2 col-md-4">
+            <button
+              class="btn btn-primary mr-3"
+              type="submit"
+              style="width:80px"
+              [title]="
+              newsForm.valid
+                  ? 'Save your entered data'
+                  : 'Disabled until the form data is valid'
+              "
+              [disabled]="!newsForm.valid"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

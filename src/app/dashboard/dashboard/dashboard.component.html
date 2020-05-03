@@ -1,0 +1,31 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+  <mat-grid-list cols="1" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards" [colspan]=1 [rowspan]=1>
+      <mat-card class="dashboard-card" style="background-image: url('../../../assets/{{card.state}}.jpeg');">
+        <!-- <img mat-card-image src="../../../assets/Maharashtra.jpeg" alt="background image"> -->
+        <mat-card-header class="dashboard-card-header">
+          <mat-card-title>
+            {{card.state}}
+            <button *ngIf="checkIfTotal(card.state)" mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item [routerLink]="['/districtwise', card.state]">More Details</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <mat-list class="dashboard-card-list">
+              <mat-list-item>Confirmed: {{card.confirmed}}</mat-list-item>
+              <mat-list-item>Active: {{card.active}}</mat-list-item>
+              <mat-list-item>Recovered: {{card.recovered}}</mat-list-item>
+              <mat-list-item>Deceased: {{card.deaths}}</mat-list-item>
+            </mat-list>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
